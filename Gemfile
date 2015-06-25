@@ -19,6 +19,11 @@ gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'upmin-admin'
+gem 'omniauth'
+gem 'omniauth-facebook'
+
+gem 'comfortable_mexican_sofa', '~> 1.12.0'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
