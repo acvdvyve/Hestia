@@ -6,16 +6,6 @@ provided by the [RailsApps Project](http://railsapps.github.io/).
 
 Rails Composer is open source and supported by subscribers. Please join RailsApps to support development of Rails Composer.
 
-Problems? Issues?
------------
-
-Need help? Ask on Stack Overflow with the tag 'railsapps.'
-
-Your application contains diagnostics in the README file. Please provide a copy of the README file when reporting any issues.
-
-If the application doesn't work as expected, please [report an issue](https://github.com/RailsApps/rails_apps_composer/issues)
-and include the diagnostics.
-
 Ruby on Rails
 -------------
 
@@ -28,6 +18,31 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 
 Getting Started
 ---------------
+Run from hestia/ using:
+```
+bundler install
+rails s
+```
+Setting up CMS
+Go to /cms_admin to access CMS settings
+Auth as in config>initializers>comfortable_mexican_sofa.rb
+HTTP Authentication (use Incognito if necessary)
+```
+username
+password
+```
+
+Create New Site
+```
+Hostname = localhost:3000
+```
+Create New Layout
+```
+App Layout = application
+```
+Create Page using default layout on localhost:3000/randomname
+
+WORK IN PROGRESS
 
 Documentation and Support
 -------------------------
