@@ -6,7 +6,13 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = '0184732dcddf66103800f663b36cfefad0a3c656d7ce764f5d4438b4e1893d3868319b10339dc5a5f0b3bf2081bc9fb82dc91a433dc207b9ef449e9a585732b0'
+  config.secret_key = '0184732dcddf66103800f663b36cfefad0a3c656d7ce764f5d4438b4e1893d3868319b10339dc5a5f0b3bf2081bc9fb82dc91a433dc207b9ef449e9a585732b0'
+
+  config.cas_base_url = "https://login.ugent.be"
+
+  config.cas_logout_url_param = 'destination'
+  config.cas_destination_logout_param_name = 'url'
+
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
@@ -43,12 +49,12 @@ Devise.setup do |config|
   # Configure which authentication keys should be case-insensitive.
   # These keys will be downcased upon creating or modifying a user and when used
   # to authenticate or find a user. Default is :email.
-  config.case_insensitive_keys = [:email]
+  config.case_insensitive_keys = [:username]
 
   # Configure which authentication keys should have whitespace stripped.
   # These keys will have whitespace before and after removed upon creating or
   # modifying a user and when used to authenticate or find a user. Default is :email.
-  config.strip_whitespace_keys = [:email]
+  config.strip_whitespace_keys = [:username]
 
   # Tell if authentication through request.params is enabled. True by default.
   # It can be set to an array that will enable params authentication only for the
@@ -121,7 +127,7 @@ Devise.setup do |config|
   # initial account confirmation) to be applied. Requires additional unconfirmed_email
   # db field (see migrations). Until confirmed, new email is stored in
   # unconfirmed_email column, and copied to email column on successful confirmation.
-  config.reconfirmable = true
+  # config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
   # config.confirmation_keys = [:email]
@@ -131,7 +137,7 @@ Devise.setup do |config|
   # config.remember_for = 2.weeks
 
   # Invalidates all the remember me tokens when the user signs out.
-  config.expire_all_remember_me_on_sign_out = true
+  # config.expire_all_remember_me_on_sign_out = true
 
   # If true, extends the user's remember period when remembered via cookie.
   # config.extend_remember_period = false
@@ -238,7 +244,7 @@ Devise.setup do |config|
   # ==> OmniAuth
   # Add a new OmniAuth provider. Check the wiki for more information on setting
   # up on your models and hooks.
-  config.omniauth :facebook, '1630986260456690', '0152af396528883114d5525dc657b1ba'
+  # config.omniauth :facebook, '1630986260456690', '0152af396528883114d5525dc657b1ba'
 
   # ==> Warden configuration
   # If you want to use other strategies, that are not supported by Devise, or
@@ -263,3 +269,7 @@ Devise.setup do |config|
   # so you need to do it manually. For the users scope, it would be:
   # config.omniauth_path_prefix = '/my_engine/users/auth'
 end
+
+Devise.cas_client_config_options = {
+    :encode_extra_attributes_as => :raw
+}

@@ -18,11 +18,22 @@ Learn more about [Installing Rails](http://railsapps.github.io/installing-rails.
 
 Getting Started
 ---------------
-Run from hestia/ using:
+To test CAS login, change hosts using
 ```
-bundler install
-rails s
+sudo nano /etc/hosts
 ```
+Add the line:
+```
+127.0.0.1 vgk.ugent.be
+```
+
+To start the server, issue these commands from within the project folder:
+```
+bundle
+sudo rails s -p 80
+```
+(Running Webrick as root is dangerous!)
+
 Setting up CMS
 Go to /cms_admin to access CMS settings
 Auth as in config>initializers>comfortable_mexican_sofa.rb

@@ -6,26 +6,38 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
-  def self.from_omniauth(auth)
-  where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-    user.email = auth.info.email
-    user.password = Devise.friendly_token[0,20]
-    user.name = auth.info.name   # assuming the user model has a name
-    user.image = auth.info.image # assuming the user model has an image
-    user.role = 2
-  end
-end
+  devise :cas_authenticatable
 
- def self.new_with_session(params, session)
-    super.tap do |user|
-      if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
-        user.email = data["email"] if user.email.blank?
+  # this should add all extra CAS attributes returned by the server to the current session
+  # extra var in session: cas_givenname, cas_surname, cas_ugentStudentID, cas_mail, cas_uid (= UGent login)
+  def cas_extra_attributes=(extra_attributes)
+    extra_attributes.each do |name, value|
+      # I prefer a case over reflection; this is safer if we suddenly get an
+      # extra attribute without column
+      case name.to_sym
+      when :givenname
+        self.cas_givenname = value
+      when :surname
+        self.cas_surname = value
+      when :ugentStudentID
+        self.cas_ugentStudentID = value
+      when :mail
+        self.cas_mail = value
+      when :uid
+        self.cas_uid = value
       end
     end
+    self.save!
   end
-  devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :trackable, :validatable,
-         :omniauthable, :omniauth_providers => [:facebook]
+
+  # return Givenname + surname or username if these don't exist
+  def display_name
+    if cas_surname and cas_givenname
+      cas_givenname + ' ' + cas_surname
+    else
+      username
+    end
+  end
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
 
@@ -46,7 +58,7 @@ end
 #                             password:Devise.friendly_token[0,20]
 #                           )
 #       end
-       
+
 #     end
 #   end
 #   =end

@@ -15,12 +15,11 @@ group :development, :test do
 end
 gem 'bootstrap-sass'
 gem 'devise'
+gem 'devise_cas_authenticatable'
 gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'upmin-admin'
-gem 'omniauth'
-gem 'omniauth-facebook'
 
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
 
