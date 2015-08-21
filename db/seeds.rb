@@ -5,5 +5,14 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
-user = CreateAdminService.new.call
-puts 'CREATED ADMIN USER: ' << user.email
+
+User.create(
+email: 'Benjamin.Rombaut@ugent.be',
+uid: 'berombau',
+name: 'Benjamin Rombaut',
+role: 'admin',
+created_at: Time.now,
+updated_at: Time.now
+) unless User.where(email: email).exists?
+user.save!
+puts 'ADDED USER: ' << User.find_by_uid("berombau")
