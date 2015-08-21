@@ -6,13 +6,15 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-User.create(
-email: 'Benjamin.Rombaut@ugent.be',
+user = User.new(
+email: 'Benjamin.Rombaut@gmail.com',
 uid: 'berombau',
-name: 'Benjamin Rombaut',
-role: 'admin',
-created_at: Time.now,
-updated_at: Time.now
-) unless User.where(email: email).exists?
-user.save!
-puts 'ADDED USER: ' << User.find_by_uid("berombau")
+username: 'berombau',
+cas_givenname: 'Benjamin',
+cas_surname: 'Rombaut',
+cas_ugentStudentID: '01300348',
+cas_mail: 'Benjamin.Rombaut@gmail.com',
+cas_uid: 'berombau',
+role: 'admin')
+puts 'ADDED USER SUCCESFULLY'
+user.save
