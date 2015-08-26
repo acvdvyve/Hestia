@@ -1,10 +1,20 @@
-set :application, 'my_app_name'
-set :repo_url, 'git@example.com:me/my_repo.git'
+set :application, 'hestia'
+set :repo_url, 'git@github.ugent.be:vgk/hestia.git'
 
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
-# set :deploy_to, '/var/www/my_app'
-# set :scm, :git
+ set :deploy_to, '/var/www/hestia'
+ set :scm, :git
+ set :branch, "master"
+ set :user, "hestia"
+ set :use_sudo, false
+ set :rails_env, "production"
+ set :deploy_via, :copy
+ set :rbenv_ruby, '2.1.2'
+ set :ssh_options, { :forward_agent => true }
+# default_run_options[:pty] = true
+server "vgkserv.ugent.be", :roles => [:app, :web, :db], :primary => true
+
 
 # set :format, :pretty
 # set :log_level, :debug
@@ -14,7 +24,7 @@ set :repo_url, 'git@example.com:me/my_repo.git'
 # set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
-# set :keep_releases, 5
+ set :keep_releases, 5
 
 namespace :deploy do
 
@@ -24,6 +34,11 @@ namespace :deploy do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
     end
+  end
+
+  desc "Restart Passenger app"
+  task :restart do
+    run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
   end
 
   after :restart, :clear_cache do
@@ -36,5 +51,17 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
+  after "deploy", "deploy:symlink_config_files"
+  after "deploy", "deploy:restart" 
 
+end
+
+desc "Symlink shared config files"
+task :symlink_config_files do
+	run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_paht }/config/database.yml"
+end
+
+desc "Restart Passenger app"
+task :restart do
+	run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
 end
