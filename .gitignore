@@ -77,3 +77,6 @@ pickle-email-*.html
 # Environment files that may contain sensitive data
 .env
 .powenv
+
+#Database.yml (wordt via spc command handmatig op server geplaatst, niet via github)
+config/database.yml
