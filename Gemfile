@@ -15,6 +15,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'upmin-admin'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
+gem 'capistrano-passenger'
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.0.1'
