@@ -3,7 +3,7 @@ require 'capistrano/setup'
 
 # Includes default deployment tasks
 require 'capistrano/deploy'
-load 'deploy/assets'
+load 'deploy' if respond_to?(:namespace) # cap2 differentiator
 
 # Includes tasks from other gems included in your Gemfile
 #
