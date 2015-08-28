@@ -51,8 +51,8 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
-  after "deploy", "deploy:symlink_config_files"
-  after "deploy", "deploy:restart" 
+#  after "deploy", "deploy:symlink_config_files"
+  after "deploy", "deploy:restart"
 
 end
 
