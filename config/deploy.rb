@@ -12,6 +12,15 @@ set :repo_url, 'git@github.ugent.be:vgk/hestia.git'
  # set :deploy_via, :copy
  set :rbenv_ruby, '2.1.2'
  set :ssh_options, { :forward_agent => true }
+set :passenger_roles, :app
+set :passenger_restart_runner, :sequence
+set :passenger_restart_wait, 5
+set :passenger_restart_limit, 2
+set :passenger_restart_with_sudo, true
+set :passenger_restart_with_touch, true
+set :passenger_environment_variables, {}
+set :passenger_restart_command, 'passenger-config restart-app'
+set :passenger_restart_options, -> { "#{deploy_to} --ignore-app-not-running" }
 # default_run_options[:pty] = true
 server "vgkserv.ugent.be", :roles => [:app, :web, :db], :primary => true
 
@@ -60,7 +69,7 @@ end
 
 desc "Symlink shared config files"
 task :symlink_config_files do
-  on roles (:app) do	
+  on roles (:all) do	
 	execute "ln -s #{ deploy_to }/shared/config/database.yml ##{ current_paht }/config/database.yml"
   end
 end
