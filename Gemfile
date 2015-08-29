@@ -19,8 +19,8 @@ gem 'capistrano-passenger'
 gem 'sprockets'
 group :development do
   gem 'better_errors'
-  gem 'capistrano', '~> 3.0.1'
-  gem 'capistrano-rails', '~> 1.1.0'
+  gem 'capistrano'
+  gem 'capistrano-rails'
   gem 'capistrano-rails-console'
   gem 'rvm1-capistrano3', require: false
   gem 'quiet_assets'
