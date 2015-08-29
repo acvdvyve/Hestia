@@ -64,14 +64,13 @@ GEM
     capistrano-bundler (1.1.2)
       capistrano (~> 3.0)
       sshkit (~> 1.2)
+    capistrano-passenger (0.1.1)
+      capistrano (~> 3.0)
     capistrano-rails (1.1.0)
       capistrano (>= 3.0.0)
       capistrano-bundler (>= 1.0.0)
     capistrano-rails-console (0.5.2)
       capistrano (>= 3.0.0, < 4.0.0)
-    capistrano-rvm (0.1.2)
-      capistrano (~> 3.0)
-      sshkit (~> 1.2)
     capybara (2.4.4)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -256,6 +255,9 @@ GEM
     rubycas-client (2.3.9)
       activesupport
     rubyzip (1.1.7)
+    rvm1-capistrano3 (1.3.2.2)
+      capistrano (~> 3.0)
+      sshkit (>= 1.2)
     sass (3.4.15)
     sass-rails (5.0.3)
       railties (>= 4.0.0, < 5.0)
@@ -332,10 +334,9 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   capistrano (~> 3.0.1)
-  capistrano-bundler
+  capistrano-passenger
   capistrano-rails (~> 1.1.0)
   capistrano-rails-console
-  capistrano-rvm (~> 0.1.1)
   capybara
   coffee-rails (~> 4.1.0)
   comfortable_mexican_sofa (~> 1.12.0)
@@ -353,6 +354,7 @@ DEPENDENCIES
   rails (= 4.2.0)
   rails_layout
   rspec-rails
+  rvm1-capistrano3
   sass-rails (~> 5.0)
   selenium-webdriver
   simple_form

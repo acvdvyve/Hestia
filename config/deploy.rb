@@ -10,13 +10,19 @@ set :repo_url, 'git@github.ugent.be:vgk/hestia.git'
  set :use_sudo, false
  set :rails_env, "production"
 # setup rvm
- set :rbenv_type, :system
- set :rbenv_ruby, '2.1.2'
- set :rbenv_prefix, "RBENV_ROOT=#{fetch(:rbenv_path)} RBENV_VERSION=#{fetch(:rbenv_ruby)} #{fetch(:rbenv_path)}/bin/rbenv exec"
- set :rbenv_map_bins, %w{rake gem bundle ruby rails}
+
+set :rvm_type, :auto
+set :rvm_ruby_version, "2.2.1@#{fetch(:application)}"
+set :rvm_bin_path, '/home/hestia/.rvm/gems/ruby-2.2.1/bin'
+set :rvm_gemset_path, '/home/hestia/.rvm/gems/ruby-2.2.1'
+set :bundle_path, nil
+set :bundle_binstubs, nil
+set :bundle_flags, '--system'
 # authorisation method
  set :ssh_options, { :forward_agent => true }
-# passenger-capistrano gem configuration. see https://github.com/capistrano/passenger/ for more info.  
+
+ set :log_level, :info
+# passenger-capistrano gem configuration. see https://github.com/capistrano/passenger/ for more info.
  set :passenger_roles, :app
  set :passenger_restart_runner, :sequence
  set :passenger_restart_wait, 5
@@ -34,11 +40,11 @@ server "vgkserv.ugent.be", :roles => [:app, :web, :db], :primary => true
 # set :log_level, :debug
  set :pty, true
 
- set :linked_files, %w{config/database.yml}
+ set :linked_files, %w{config/database.yml config/secrets.yml}
  set :linked_dirs, %w{bin log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
 
 # set :default_env, { path: "/opt/ruby/bin:$PATH" }
- set :keep_releases, 5
+ set :keep_releases, 20
 
 namespace :deploy do
 
@@ -47,8 +53,8 @@ namespace :deploy do
     on roles(:app), in: :sequence, wait: 5 do
       # Your restart mechanism here, for example:
       # execute :touch, release_path.join('tmp/restart.txt')
-      #	execute :mkdir,'-p', "#{ File.join(current_path) }"	
-      #	execute :touch,  " #{ File.join(current_path, 'tmp', 'restart.txt') }"   
+      #	execute :mkdir,'-p', "#{ File.join(current_path) }"
+      #	execute :touch,  " #{ File.join(current_path, 'tmp', 'restart.txt') }"
     end
   end
 
@@ -62,8 +68,5 @@ namespace :deploy do
   end
 
   after :finishing, 'deploy:cleanup'
-  after "deploy", "deploy:restart"
 
 end
-
-

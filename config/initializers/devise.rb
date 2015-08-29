@@ -6,8 +6,6 @@ Devise.setup do |config|
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` on Rails 4+ applications as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  config.secret_key = '0184732dcddf66103800f663b36cfefad0a3c656d7ce764f5d4438b4e1893d3868319b10339dc5a5f0b3bf2081bc9fb82dc91a433dc207b9ef449e9a585732b0'
-
   config.cas_base_url = "https://login.ugent.be"
 
   config.cas_logout_url_param = 'destination'
@@ -18,7 +16,6 @@ Devise.setup do |config|
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class
   # with default "from" parameter.
-  config.mailer_sender = 'no-reply@' + Rails.application.secrets.domain_name
 
   # Configure the class responsible to send e-mails.
   # config.mailer = 'Devise::Mailer'
