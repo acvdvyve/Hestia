@@ -1,5 +1,5 @@
 / navigation styled for Bootstrap 3.0
-nav.navbar.navbar-inverse.navbar-fixed-top
+nav.navbar.navbar-inverse.navbar-fixed-top[role="navigation"]
   .container
     .navbar-header
       button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse"]
@@ -7,7 +7,9 @@ nav.navbar.navbar-inverse.navbar-fixed-top
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      = link_to 'Vlaamse Geneeskundige Kring', root_path, class: 'navbar-brand'
+      = link_to 'Geneeskunde@Gent', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         == render 'layouts/navigation_links'
+      ul.nav.navbar-nav.navbar-right
+        == render 'layouts/navigation_links_right'

@@ -13,3 +13,45 @@
  *= require_tree .
  *= require_self
  */
+ body{
+   margin-top: 50px;
+ }
+
+ main{
+   margin-top: 0px;
+ }
+
+ .divide_nav{
+   height: 50px;
+   background-color: #510388;
+ }
+
+ .vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+ .divide-text{
+     color:#fff;
+     line-height: 20px;
+     font-size:15px;
+     padding: 15px 0px;
+ }
+
+ .affix {
+   top: 50px;
+   width:100%;
+ }
+
+ .filler{
+   min-height: 2000px;
+ }
+
+ .navbar-form {
+    padding-left: 0;
+ }
+
+ .navbar-lower {
+    margin-bottom: 0px;
+ }

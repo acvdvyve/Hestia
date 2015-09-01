@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   mount Upmin::Engine => '/admin'
-  root to: 'visitors#index'
+  root to: 'comfy/cms/content#show'
   devise_for :users
   resources :users
 

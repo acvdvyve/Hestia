@@ -1,0 +1,13 @@
+/ navigation styled for Bootstrap 3.0
+nav.navbar.navbar-default.navbar-lower[role="navigation"]
+  .container
+    .navbar-header
+      button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-collapse2"]
+        span.sr-only Toggle navigation
+        span.icon-bar
+        span.icon-bar
+        span.icon-bar
+      = link_to 'Vlaamse Geneeskundige Kring', root_path, class: 'navbar-brand'
+    .collapse.navbar-collapse2
+      ul.nav.navbar-nav
+        == render 'layouts/navigation2_links'

@@ -11,6 +11,11 @@ html
   body
     header
       == render 'layouts/navigation'
+      == render 'layouts/divide_nav'
+      == render 'layouts/navigation2'
     main[role="main"]
       == render 'layouts/messages'
       == yield
+  footer
+    h3.text-center Sponsers
+    p.text-center Copyright © 2015 Vlaamse Geneeskundige Kring
