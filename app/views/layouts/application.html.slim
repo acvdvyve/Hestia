@@ -3,8 +3,8 @@ html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
     title
-      = content_for?(:title) ? yield(:title) : 'Hestia'
-    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Hestia'}"
+      = content_for?(:title) ? yield(:title) : 'VGK | Vlaamse Geneeskundige Kring'
+    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Vlaamse Geneeskundige Kring'}"
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
@@ -17,5 +17,5 @@ html
       == render 'layouts/messages'
       == yield
   footer
-    h3.text-center Sponsers
+    h3.text-center Sponsors
     p.text-center Copyright © 2015 Vlaamse Geneeskundige Kring

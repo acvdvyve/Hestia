@@ -5,25 +5,25 @@ ComfortableMexicanSofa.configure do |config|
   config.cms_title = 'ComfortableMexicanSofa CMS Engine'
 
   # Controller that is inherited from CmsAdmin::BaseController
-  #   config.base_controller = 'ApplicationController'
+  config.base_controller = 'ApplicationController'
 
   # Module responsible for authentication. You can replace it with your own.
   # It simply needs to have #authenticate method. See http_auth.rb for reference.
-  #   config.admin_auth = 'ComfyAdminAuthentication'
+  config.admin_auth = 'ComfyAdminAuthentication'
 
   # Module responsible for authorization on admin side. It should have #authorize
   # method that returns true or false based on params and loaded instance
   # variables available for a given controller.
-  #   config.admin_authorization = 'ComfyAdminAuthorization'
+  config.admin_authorization = 'ComfyAdminAuthorization'
 
   # Module responsible for public authentication. Similar to the above. You also
   # will have access to @cms_site, @cms_layout, @cms_page so you can use them in
   # your logic. Default module doesn't do anything.
-  #   config.public_auth = 'ComfyPublicAuthentication'
+  # config.public_auth = 'ComfyPublicAuthentication'
 
   # When arriving at /cms-admin you may chose to redirect to arbirtary path,
   # for example '/cms-admin/users'
-  #   config.admin_route_redirect = ''
+     config.admin_route_redirect = '/cms_admin/sites/1/pages'
 
   # File uploads use Paperclip and can support filesystem or s3 uploads.  Override
   # the upload method and appropriate settings based on Paperclip.  For S3 see:
@@ -96,26 +96,28 @@ end
 
 # Default credentials for ComfortableMexicanSofa::AccessControl::AdminAuthentication
 # YOU REALLY WANT TO CHANGE THIS BEFORE PUTTING YOUR SITE LIVE
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = 'username'
-ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = 'password'
+# ComfortableMexicanSofa::AccessControl::AdminAuthentication.username = 'username'
+# ComfortableMexicanSofa::AccessControl::AdminAuthentication.password = 'password'
 
 # Uncomment this module and `config.admin_auth` above to use custom admin authentication
-# module ComfyAdminAuthentication
-#   def authenticate
-#     return true
-#   end
-# end
+module ComfyAdminAuthentication
+   def authenticate
+     :authenticate_user!
+   end
+ end
 
-# Uncomment this module and `config.admin_authorization` above to use custom admin authorization
-# module ComfyAdminAuthorization
-#   def authorize
-#     return true
-#   end
-# end
+ # Uncomment this module and `config.admin_authorization` above to use custom admin authorization
+ module ComfyAdminAuthorization
+   def authorize
+     unless current_user && current_user.admin?
+      redirect_to new_user_session_path
+    end
+   end
+ end
 
-# Uncomment this module and `config.public_auth` above to use custom public authentication
-# module ComfyPublicAuthentication
-#   def authenticate
-#     return true
-#   end
-# end
+ # Uncomment this module and `config.public_auth` above to use custom public authentication
+ module ComfyPublicAuthentication
+   def authenticate
+    return false
+   end
+ end

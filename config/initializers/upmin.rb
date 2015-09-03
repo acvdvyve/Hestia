@@ -2,6 +2,11 @@
 # Extends the Upmin ApplicationController to limit access to users with an admin role.
 # Depends on Devise for authentication plus role-based authorization.
 # Be sure to restart your server when you modify this file.
+Upmin.configure do |config|
+  # Configurations go here - e.g.:
+  config.models = [:user]
+end
+
 module AdminOnly
   extend ActiveSupport::Concern
 
