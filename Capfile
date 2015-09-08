@@ -20,6 +20,7 @@ require 'rvm1/capistrano3'
 require 'capistrano/bundler'
 require 'capistrano/rails/assets'
 require 'capistrano/rails/migrations'
+require 'capistrano/passenger'
 
 before 'deploy', 'rvm1:install:gems'  # install/update gems from Gemfile into gemset
 
