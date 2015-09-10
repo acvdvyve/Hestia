@@ -1,9 +1,9 @@
-<li class="active"><%= link_to 'Home', root_path %></li>
+<li class="<%=is_active('home')%>"><%= link_to 'Home', root_path %></li>
 <li class="dropdown">
     <a data-toggle="dropdown" class="dropdown-toggle" href="#">Over VGK</a>
     <ul role="menu" class="dropdown-menu">
-	<li><%= link_to 'Onthaal', "http://vgk.be/onthaal"%></li>
-	<li><%= link_to 'Praesidium', "http://vgk.be/praesidium"%></li>
+	<li class="<%=is_active('onthaal')%>"><%= link_to 'Onthaal', "http://vgk.be/onthaal"%></li>
+	<li class="<%=is_active('praesidium')%>"><%= link_to 'Praesidium', "http://vgk.be/praesidium"%></li>
   </ul>
 </li>
 <% if user_signed_in? %>
