@@ -9,10 +9,6 @@ html
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
-    script
-      $(document).ready(function() {
-        $('a[href="' + this.location.pathname + '"]').parent().addClass('active');
-      });
     header
       == render 'layouts/navigation'
       == render 'layouts/divide_nav'
