@@ -1,32 +1,38 @@
-<li><%= link_to 'Home', root_path %></li>
 <li class="dropdown">
-  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Over VGK<b class="caret"></b></a>
+  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Info<b class="caret"></b></a>
   <ul role="menu" class="dropdown-menu">
-	<li><%= link_to 'algemeen', "http://vgk.be/onthaal"%></li>
-	<li><%= link_to 'praesidium', "http://vgk.be/praesidium"%></li>
-	<li><%= link_to 'contact', "http://vgk.be/contact"%></li>
+	<li><%= link_to 'Algemeen', "/onthaal"%></li>
+	<li><%= link_to 'Praesidium', "/praesidium"%></li>
+  <li role="separator" class="divider"></li>
+	<li><%= link_to 'Contact', "/contact"%></li>
   </ul>
 </li>
-<li><%= link_to 'Cursus', "http://vgk.be/cursus"%></li>
 <li class="dropdown">
   <a data-toggle="dropdown" class="dropdown-toggle" href="#">Activiteiten<b class="caret"></b></a>
     <ul role="menu" class="dropdown-menu">
-	<li><%= link_to 'sport', "http://vgk.be/sport"%></li>
-	<li><%= link_to 'cultuur', "http://vgk.be/cultuur"%></li>
-	<li><%= link_to 'feest', "http://vgk.be/feest"%></li>
+  <li><%= link_to 'Kalender', "/kalender"%></li>
+  <li role="separator" class="divider"></li>
+  <li><%= link_to 'Cantus', "/cantus"%></li>
+	<li><%= link_to 'Cultuur', "/cultuur"%></li>
+	<li><%= link_to 'Feest', "/feest"%></li>
+	<li><%= link_to 'Sport', "/sport"%></li>
     </ul>
 </li>
 <li class="dropdown">
-    <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cantus<b class="caret"></b></a>
+  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Cursus<b class="caret"></b></a>
   <ul role="menu" class="dropdown-menu">
-	<li><%= link_to 'cantus', "http://vgk.be/cantus"%></li>
-	<li><%= link_to 'clublied', "http://vgk.be/cantus/clublied"%></li>
+	<li><%= link_to 'Info', "/cursus"%></li>
+  <li role="separator" class="divider"></li>
+	<li><%= link_to 'FK Cursussen', "http://boeken.fkgent.be"%></li>
+	<li><%= link_to 'Acco Boeken', "https://www.acco.be/vgk"%></li>
   </ul>
 </li>
 <li class="dropdown">
-  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Redactie<b class="caret"></b></a>
+  <a data-toggle="dropdown" class="dropdown-toggle" href="#">Media<b class="caret"></b></a>
     <ul role="menu" class="dropdown-menu">
-	<li><%= link_to 'Archief SPN', "http://vgk.be/spn"%></li>
+  <li><%= link_to "Foto's", "/spn"%></li>
+  <li role="separator" class="divider"></li>
+	<li><%= link_to 'SPN Archief', "/spn"%></li>
 	<li><%= link_to 'Anaal Kanaal', "https://docs.google.com/forms/d/1qAK7N44OKSn06CHodHRcahBKNDKcBlb21PtJX05tjK4/viewform"%></li>
     </ul>
 </li>
