@@ -109,8 +109,8 @@ module ComfyAdminAuthentication
  # Uncomment this module and `config.admin_authorization` above to use custom admin authorization
  module ComfyAdminAuthorization
    def authorize
-     if current_user.try(:user?)
-      redirect_to new_user_session_path
+     unless current_user.try(:vip?) or current_user.try(:admin?)
+     redirect_to new_user_session_path
     end
    end
  end
