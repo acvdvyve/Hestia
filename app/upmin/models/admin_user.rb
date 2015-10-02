@@ -1,6 +1,6 @@
 class AdminUser < Upmin::Model
    # The attributes method overwrites default attributes shown for a model, and replaces them with the provided attributes. These don't all need to be editable, but as long as there is an :attr_name= method available upmin assumes that the attribute should be editable.
-  attributes :cas_givenname, :cas_surname, :email, :cas_ugentStudentID, :cas_uid, :role
+  attributes :cas_givenname, :cas_surname, :cas_mail, :cas_ugentStudentID, :cas_uid, :role
 
   # The items_per_page method overrides the number of items shown for a model from the default of 30.
   # (The global default can also be modified in the upmin config initializer.)
