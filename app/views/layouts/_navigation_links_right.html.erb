@@ -2,5 +2,5 @@
 <% if user_signed_in? %>
   <li><%= button_to 'Logout', destroy_user_session_path, :class=>"btn btn-default navbar-btn form-control",:method=>'delete' %></li>
 <% else %>
-  <li><%= button_to 'Login', new_user_session_path, :class=>"btn btn-default navbar-btn form-control" %></li>
+  <li><%= button_to 'Intranet', new_user_session_path, :class=>"btn btn-default navbar-btn form-control" %></li>
 <% end %>
