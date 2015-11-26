@@ -9,10 +9,10 @@ html
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
   body
+    == render 'layouts/navigation'
     header
-      == render 'layouts/navigation'
       = cms_snippet_render(:divide)
-      == render 'layouts/navigation2'
+    == render 'layouts/navigation2'
     main[role="main"]
       == render 'layouts/messages'
       == yield
