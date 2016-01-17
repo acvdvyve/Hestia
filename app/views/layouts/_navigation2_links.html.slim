@@ -1,4 +1,4 @@
-- Comfy::Cms::Page.first.categories.each do |c|
+- Comfy::Cms::Category.where("categorized_type = 'Comfy::Cms::Page'").each do |c|
   li.dropdown
     a.dropdown-toggle data-toggle="dropdown" href="#" 
       = c.label
