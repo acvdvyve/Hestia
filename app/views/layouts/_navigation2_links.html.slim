@@ -1,0 +1,8 @@
+- Comfy::Cms::Site.first.categories.each do |c|
+  li.dropdown
+    a.dropdown-toggle data-toggle="dropdown" href="#" 
+      = c.label
+      b.caret
+    ul.dropdown-menu role="menu" 
+      - Comfy::Cms::Page.for_category(c.label).each do |page|
+        li= link_to page.label, page.url(:relative)

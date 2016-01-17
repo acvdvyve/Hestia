@@ -9,5 +9,5 @@ Rails.application.routes.draw do
   resources :users
 
   # Make sure this routeset is defined last
-  comfy_route :cms, :path => '/', :sitemap => false
+  comfy_route :cms, :path => '/', :sitemap => true
 end

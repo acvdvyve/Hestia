@@ -2,13 +2,17 @@ doctype html
 html
   head
     meta[name="viewport" content="width=device-width, initial-scale=1.0"]
+    meta charset="UTF-8"
     title
       = content_for?(:title) ? yield(:title) : 'VGK | Vlaamse Geneeskundige Kring'
-    meta name="description" content="#{content_for?(:description) ? yield(:description) : 'Vlaamse Geneeskundige Kring'}"
+    meta name="description" content=cms_block_content(:meta_description, Comfy::Cms::Page.find_by_full_path('/'))
+    meta name="og:url" content=cms_block_content(:meta_ogurl, Comfy::Cms::Page.find_by_full_path('/'))
+    meta name="og:title" content=cms_block_content(:meta_ogtitle, Comfy::Cms::Page.find_by_full_path('/'))
+    meta name="og:description" content=cms_block_content(:meta_ogdescription, Comfy::Cms::Page.find_by_full_path('/'))
+    meta name="og:image" content=cms_block_content(:meta_ogurl, Comfy::Cms::Page.find_by_full_path('/'))
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == javascript_include_tag 'application', 'data-turbolinks-track' => true
     == csrf_meta_tags
-    = cms_snippet_render(:head)
   body
     == render 'layouts/navigation'
     header

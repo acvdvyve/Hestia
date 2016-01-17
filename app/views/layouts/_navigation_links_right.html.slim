@@ -1,0 +1,6 @@
+li
+  a href="https://docs.google.com/forms/d/1T4UQOSarpjbYuyyOy-eMddwyLcusY1cS-yC7FOQJwS8/viewform?usp=send_form"  Feedback
+- if user_signed_in?
+  li= button_to 'Logout', destroy_user_session_path, :class=>"btn btn-default navbar-btn form-control",:method=>'delete'
+- else
+  li= button_to 'Intranet', new_user_session_path, :class=>"btn btn-default navbar-btn form-control"
