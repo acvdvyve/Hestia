@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821203447) do
+ActiveRecord::Schema.define(version: 20160117211008) do
 
   create_table "comfy_cms_blocks", force: :cascade do |t|
     t.string   "identifier",                      null: false
