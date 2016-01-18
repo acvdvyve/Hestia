@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
+
   comfy_route :cms_admin, :path => '/cms_admin'
-
-
 
   mount Upmin::Engine => '/admin'
   root to: 'comfy/cms/content#show'
