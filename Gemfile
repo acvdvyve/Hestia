@@ -18,6 +18,8 @@ gem 'upmin-admin'
 gem 'comfortable_mexican_sofa', '~> 1.12.0'
 gem 'capistrano-passenger'
 gem 'sprockets'
+gem 'Bootstrap-Image-Gallery-rails'
+gem "paperclip", "~> 4.3"
 group :development do
   gem 'better_errors'
   gem 'capistrano'

@@ -1,0 +1,11 @@
+h1
+  | New Photo
+= form_for @photo, url: album_photos_path, method: :post, html: { multipart: true } do |f|
+  p
+    = f.label :album_id
+    br
+    = f.text_field :album_id
+  = f.file_field :file
+  p
+    = f.submit 'Create Photo'
+= link_to 'Back', album_photos_path

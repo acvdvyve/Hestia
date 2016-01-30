@@ -1,0 +1,20 @@
+h1
+  | Editing photo
+= form_for :photo, url: album_photo_path(@album, @photo), html: { multipart: true }, method: :patch do |f|
+  - if @photo.errors.any?
+    #error_explanation
+      h2
+        = pluralize(@photo.errors.count, "error")
+        |  prohibited this photo from being saved: 
+      ul
+        - @photo.errors.full_messages.each do |msg|
+          li
+            = msg
+  p
+    = f.label :album_id
+    br
+    = f.text_field :album_id
+  = form.file_field :file
+  p
+    = f.submit
+= link_to 'Back', album_photos_path

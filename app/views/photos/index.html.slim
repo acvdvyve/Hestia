@@ -1,0 +1,13 @@
+h1
+  = @album.title
+#links.links
+  - @photo.each do |photo|
+    |  <a href="
+    = photo.file.url(:medium)
+    | " data-gallery> <img src="
+    = photo.file.url(:square)
+    | "> 
+
+
+= link_to 'New', new_album_photo_path
+= link_to 'Back', albums_path
