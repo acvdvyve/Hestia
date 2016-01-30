@@ -21,7 +21,7 @@
 //= require blueimp-gallery-video
 //= require blueimp-gallery-youtube
 //= require jquery.blueimp-gallery
-//= require bootstrap-image-gallery
+
 //= require blueimp-activator
 
 //= require owl.carousel.min.js
