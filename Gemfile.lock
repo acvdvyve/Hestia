@@ -108,6 +108,8 @@ GEM
       rails (>= 4.0.0, < 5)
       rails-i18n (>= 4.0.0)
       sass-rails (>= 4.0.3)
+    comfy_blog (1.12.3)
+      comfortable_mexican_sofa (>= 1.12.7)
     database_cleaner (1.4.1)
     debug_inspector (0.0.2)
     devise (3.5.2)
@@ -339,7 +341,8 @@ DEPENDENCIES
   capistrano-rails-console
   capybara
   coffee-rails (~> 4.1.0)
-  comfortable_mexican_sofa (~> 1.12.0)
+  comfortable_mexican_sofa
+  comfy_blog
   database_cleaner
   devise
   devise_cas_authenticatable

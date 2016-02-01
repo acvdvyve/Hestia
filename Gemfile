@@ -15,7 +15,10 @@ gem 'pundit'
 gem 'simple_form'
 gem 'slim-rails'
 gem 'upmin-admin'
-gem 'comfortable_mexican_sofa', '~> 1.12.0'
+
+gem 'comfortable_mexican_sofa'
+gem 'comfy_blog'
+
 gem 'capistrano-passenger'
 gem 'sprockets'
 group :development do
