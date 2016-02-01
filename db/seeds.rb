@@ -22,7 +22,5 @@ User.create!([
 puts 'ADDED USERS SUCCESFULLY'
 
 Comfy::Cms::Site.create!(identifier: 'default-site', hostname: 'default.dev')
-Comfy::Cms::Layout.create!(site_id: 'default-site', identifier: 'default-layout', label: 'Default Layout', content: '{{ cms:page:content:rich_text }}')
-Comfy::Cms::Page.create!(site_id: 'default-site', layout_id: 'default-layout', label: 'Default Page', full_path: 'default.dev', content_cache: 'Welcome!')
 
 puts 'ADDED CMS SITE SUCCESFULLY'

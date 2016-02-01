@@ -1,6 +1,8 @@
 class Photo < ActiveRecord::Base
   belongs_to :album
 
+  dragonfly_accessor :image
+
   has_attached_file :file,
   styles: {
   large: "1000x1000>",

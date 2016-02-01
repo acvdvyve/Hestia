@@ -19,6 +19,8 @@ gem 'comfortable_mexican_sofa', '~> 1.12.0'
 gem 'capistrano-passenger'
 gem 'sprockets'
 gem 'Bootstrap-Image-Gallery-rails'
+
+gem 'dragonfly', '~> 1.0.12'
 gem "paperclip", "~> 4.3"
 group :development do
   gem 'better_errors'

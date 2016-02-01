@@ -1,7 +1,6 @@
 class PhotosController < ApplicationController
 
   before_filter :set_album
-
   def index
     @photo = @album.photos.all
   end
@@ -43,6 +42,6 @@ class PhotosController < ApplicationController
     @album = Album.find params[:album_id]
   end
   def photo_params
-    params.require(:photo).permit(:file, :album_id)
+    params.require(:photo).permit(:file, :image, :album_id)
   end
 end
