@@ -1,0 +1,9 @@
+h1
+  = @album.title
+#links.links
+  - @photo.each do |photo|
+    a.data-gallery href="#{photo.image.thumb('400x200#').url if photo.image_stored?}"
+      img src="#{photo.image.thumb('400x200#').url if photo.image_stored?}"
+
+= link_to 'New', new_album_photo_path
+= link_to 'Back', albums_path

@@ -1,0 +1,8 @@
+p
+  strong
+    | Title:
+= image_tag @photo.file.url
+= image_tag @photo.file.url(:medium)
+= image_tag @photo.file.url(:thumb)
+= link_to 'Edit', edit_album_path
+= link_to 'Back', albums_path
