@@ -25,8 +25,8 @@ gem 'dragonfly', '~> 1.0.12'
 gem "paperclip", "~> 4.3"
 group :development do
   gem 'better_errors'
-  gem 'capistrano'
-  gem 'capistrano-rails'
+  gem 'capistrano', '~> 3.1'
+  gem 'capistrano-rails', '~> 1.1'
   gem 'capistrano-rails-console'
   gem 'rvm1-capistrano3', require: false
   gem 'quiet_assets'
