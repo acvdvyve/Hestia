@@ -19,8 +19,6 @@ set :bundle_path, nil
 set :bundle_binstubs, nil
 set :bundle_flags, '--system'
 
-require 'bundler/capistrano'
-
 # authorisation method
  set :ssh_options, { :forward_agent => true }
 
