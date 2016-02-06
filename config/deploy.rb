@@ -18,6 +18,9 @@ set :rvm_gemset_path, '/home/hestia/.rvm/gems/ruby-2.2.1'
 set :bundle_path, nil
 set :bundle_binstubs, nil
 set :bundle_flags, '--system'
+
+require 'bundler/capistrano'
+
 # authorisation method
  set :ssh_options, { :forward_agent => true }
 

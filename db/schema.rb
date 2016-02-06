@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160130063812) do
+ActiveRecord::Schema.define(version: 20160205231537) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
@@ -191,6 +191,7 @@ ActiveRecord::Schema.define(version: 20160130063812) do
     t.integer  "file_file_size"
     t.datetime "file_updated_at"
     t.string   "image_uid"
+    t.string   "name"
   end
 
   create_table "users", force: :cascade do |t|

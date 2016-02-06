@@ -2,10 +2,9 @@
 
 <% @album.each do |album| %>
     <tr>
-      <td><%= album.title %></td>
+      <td><%= link_to album.title, album_photos_path(album) %></td>
       <td><%= link_to 'Edit', album_path(album) %></td>
-      <td><%= link_to 'Show', album_photos_path(album) %></td>
     </tr>
   <% end %>
-
+</br>
   <%= link_to 'New', new_album_path %>

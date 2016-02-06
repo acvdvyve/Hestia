@@ -5,7 +5,9 @@ h1
     = f.label :album_id
     br
     = f.text_field :album_id
-  = f.file_field :file
-  p
+    p
+      = f.label :name
+      br
+      = f.text_field :name
     = f.submit 'Create Photo'
 = link_to 'Back', album_photos_path

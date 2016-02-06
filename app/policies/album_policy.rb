@@ -1,6 +1,14 @@
-class UserPolicy < ApplicationPolicy
+class AlbumPolicy < ApplicationPolicy
 
   def index?
+    @current_user.admin?
+  end
+
+  def new?
+    @current_user.admin?
+  end
+
+  def create?
     @current_user.admin?
   end
 
@@ -13,7 +21,6 @@ class UserPolicy < ApplicationPolicy
   end
 
   def destroy?
-    return false if @current_user == @user
     @current_user.admin?
   end
 
