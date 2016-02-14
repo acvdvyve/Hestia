@@ -12,6 +12,8 @@ html
     meta name="og:image" content=cms_block_content(:meta_ogurl, Comfy::Cms::Page.find_by_full_path('/'))
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == csrf_meta_tags
+    == javascript_include_tag "application", :media => 'all', 'data-turbolinks-track' => true
+    == javascript_include_tag params[:controller], :media => 'all', 'data-turbolinks-track' => true
   body
     == render 'layouts/navigation'
     header
@@ -20,7 +22,7 @@ html
     main[role="main"]
       == render 'layouts/messages'
       == yield
-    == render 'layouts/gallery'
-    == javascript_include_tag "application", :media => 'all', 'data-turbolinks-track' => true
+    == render 'layouts/gallery' if params[:controller] == "albums"
+    
   footer
       = cms_snippet_render(:footer)

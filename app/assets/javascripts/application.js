@@ -10,21 +10,34 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+//= require_tree ./global
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap-sprockets
 
-//= require blueimp-gallery
-//= require blueimp-gallery-fullscreen
-//= require blueimp-gallery-indicator
-//= require blueimp-gallery-video
-//= require blueimp-gallery-youtube
-//= require jquery.blueimp-gallery
-
-//= require blueimp-activator
-
 //= require owl.carousel.min.js
 $('.navbar-lower').affix({
   offset: {top: 50}
+});
+
+$(document).ready(function() {
+$('.owl-carousel').owlCarousel({
+loop:true,
+margin:10,
+autoplay:true,
+nav:true,
+autoHeight:true,
+responsive:{
+0:{
+items:1
+},
+768:{
+items:1
+},
+1200:{
+items:1
+}
+}
+})
 });

@@ -200,7 +200,7 @@ GEM
     mini_portile2 (2.0.0)
     minitest (5.8.4)
     multi_json (1.11.2)
-    mysql2 (0.4.2)
+    mysql2 (0.3.18)
     nested_form (0.3.2)
     net-scp (1.2.1)
       net-ssh (>= 2.6.5)
@@ -392,7 +392,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   launchy
-  mysql2
+  mysql2 (~> 0.3.18)
   paperclip (~> 4.3)
   pundit
   quiet_assets
@@ -416,4 +416,4 @@ DEPENDENCIES
   web-console (~> 2.0)
 
 BUNDLED WITH
-   1.10.5
+   1.11.2
