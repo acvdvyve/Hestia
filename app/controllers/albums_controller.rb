@@ -35,16 +35,31 @@ class AlbumsController < ApplicationController
   def update
     @album = Album.find(params[:id])
     authorize @album
-if @album.update(album_params)
-  redirect_to @album
-else
-  render :edit
-end
+  if @album.update(album_params)
+    redirect_to @album
+  else
+    render :edit
   end
 
-  private
-  def album_params
-    params.require(:album).permit(:id, :title)
+  def process_photos
+    @album = Album.find(params[:id])
+
+    file_list = Dir.glob.join(@album.path, "*.{jpg,jpeg,JPG}") # Vind alle JPEG files in de directory
+    file_list.sort! # Sorteren op alfabet (maw volgens de 'juiste' volgorde van de foto's)
+    render html: '<b> <%=basename%> <b/>'.html_safe
+
+    total = file_list.length
+        file_list.each do |file|
+        basename = File.basename(file)
+        @album.photos.create(:photo => basename)
+        end
   end
+
+end
+
+private
+def album_params
+  params.require(:album).permit(:id, :name, :title)
+end
 
 end

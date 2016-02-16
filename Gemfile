@@ -23,6 +23,9 @@ gem 'Bootstrap-Image-Gallery-rails'
 
 gem 'dragonfly', '~> 1.0.12'
 gem "paperclip", "~> 4.3"
+
+gem 'httparty'
+
 group :development do
   gem 'better_errors'
   gem 'capistrano', '~> 3.1'

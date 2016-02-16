@@ -13,7 +13,6 @@ html
     == stylesheet_link_tag "application", :media => 'all', 'data-turbolinks-track' => true
     == csrf_meta_tags
     == javascript_include_tag "application", :media => 'all', 'data-turbolinks-track' => true
-    == javascript_include_tag params[:controller], :media => 'all', 'data-turbolinks-track' => true
   body
     == render 'layouts/navigation'
     header
@@ -22,7 +21,8 @@ html
     main[role="main"]
       == render 'layouts/messages'
       == yield
-    == render 'layouts/gallery' if params[:controller] == "albums"
+    == render 'layouts/gallery' if params[:controller] == "photos"
+    == javascript_include_tag params[:controller], :media => 'all', 'data-turbolinks-track' => true
     
   footer
       = cms_snippet_render(:footer)

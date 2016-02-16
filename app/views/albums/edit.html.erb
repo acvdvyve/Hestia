@@ -20,11 +20,14 @@
     <%= f.label :title %><br>
     <%= f.text_field :title %>
   </p>
-
+  <p>
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </p>
   <p>
     <%= f.submit %>
   </p>
 
 <% end %>
-
+<p><%= link_to "Foto's verwerken", :url => album_process_photos_path(@album) %></p>
 <%= link_to 'Back', albums_path %>

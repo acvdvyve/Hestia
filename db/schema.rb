@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160205231537) do
+ActiveRecord::Schema.define(version: 20160215190654) do
 
   create_table "albums", force: :cascade do |t|
     t.string   "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "name"
   end
 
   create_table "comfy_blog_comments", force: :cascade do |t|
@@ -218,6 +219,7 @@ ActiveRecord::Schema.define(version: 20160205231537) do
     t.string   "cas_ugentStudentID"
     t.string   "cas_mail"
     t.string   "cas_uid"
+    t.boolean  "member"
   end
 
   add_index "users", ["email"], name: "index_users_on_email"
