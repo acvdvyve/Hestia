@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resources :albums do
+    get 'process_photos', :action => 'process_photos'
     resources :photos
   end
 
