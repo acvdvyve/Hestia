@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
     self.role ||= :user
   end
 
-  devise :cas_authenticatable
+  devise :cas_authenticatable, :database_authenticatable
 
   # this should add all extra CAS attributes returned by the server to the current session
   # extra var in session: cas_givenname, cas_surname, cas_ugentStudentID, cas_mail, cas_uid (= UGent login)

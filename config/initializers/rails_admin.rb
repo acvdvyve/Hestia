@@ -4,7 +4,13 @@ RailsAdmin.config do |config|
 
   ## == Devise ==
   config.authenticate_with do
-     authenticate_user!
+     if Rails.env.development?
+       authenticate_or_request_with_http_basic('Login required') do |username, password|
+      username == "user" &&
+      password == "password"
+       end
+      else authenticate_user!
+       end
    end
 
    ## == Pundit ==
