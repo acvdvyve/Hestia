@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.2.1'
+ruby '2.2.3'
 gem 'rails', '4.2.0'
 gem 'rake', '10.5.0'
 gem 'sass-rails', '~> 5.0'
@@ -44,6 +44,7 @@ group :development, :test do
   gem 'web-console', '~> 2.0'
   gem 'spring'
   gem 'sqlite3'
+  gem 'unicorn'
 end
 group :test do
   gem 'capybara'
