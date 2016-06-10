@@ -16,7 +16,7 @@ gem 'simple_form'
 gem 'slim-rails'
 gem 'rails_admin'
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
-gem 'comfortable_mexican_sofa', '~> 1.12.0'
+gem 'comfortable_mexican_sofa', '~> 1.12.9'
 gem 'capistrano-passenger'
 gem 'sprockets'
 gem 'Bootstrap-Image-Gallery-rails'

@@ -2,11 +2,11 @@ version: '2'
 services:
   app:
     build: .
-    command: rails s -p 3000 -b '0.0.0.0'
+    command: bundle exec rails s -p 3000 -b '0.0.0.0'
     volumes:
       - .:/app
     ports:
-      - "3000:3000"
+      - "80:3000"
     links:
       - db
 
@@ -16,6 +16,17 @@ services:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
       - "3306:3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: myadmin
+    environment:
+     - PMA_ARBITRARY=1
+    restart: always
+    ports:
+     - 8080:80
+    volumes:
+     - /sessions
 
 volumes:
   bundle: {}
