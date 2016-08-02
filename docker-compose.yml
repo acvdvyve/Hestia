@@ -2,6 +2,7 @@ version: '2'
 services:
   app:
     build: .
+    container_name: hestia
     command: sh ./script/start.sh
     volumes:
       - .:/app
@@ -11,6 +12,7 @@ services:
 
   db:
     image: mysql
+    container_name: mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
     ports:
