@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.2.3'
 gem 'rails', '4.2.6'
-gem 'rake', '10.5.0'
+gem 'rake'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
@@ -17,7 +17,6 @@ gem 'slim-rails'
 gem 'rails_admin'
 gem "rails_admin_pundit", :github => "sudosu/rails_admin_pundit"
 gem 'comfortable_mexican_sofa', '~> 1.12.9'
-gem 'capistrano-passenger'
 gem 'sprockets'
 gem 'Bootstrap-Image-Gallery-rails'
 
@@ -27,11 +26,12 @@ gem "paperclip", "~> 4.3"
 gem 'httparty'
 
 group :development do
+  gem 'capistrano'
+  gem 'capistrano-bundler'
+  gem 'capistrano-passenger', '>= 0.1.1'
+  gem 'capistrano-rails'
+
   gem 'better_errors'
-  gem 'capistrano', '~> 3.1'
-  gem 'capistrano-rails', '~> 1.1'
-  gem 'capistrano-rails-console'
-  gem 'rvm1-capistrano3', require: false
   gem 'quiet_assets'
   gem 'rails_layout'
   gem 'spring-commands-rspec'
