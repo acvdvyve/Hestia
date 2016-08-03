@@ -1,0 +1,35 @@
+  app:
+    build: berombau/hestia
+    command: bundle check || bundle install || bundle exec rails s
+    volumes:
+      - .:/app
+      - bundle:/bundle
+    ports:
+      - "80"
+    environment:
+      - RAILS_ENV=production
+      - VIRTUAL_HOST=docker.vgk.be
+
+  db:
+    image: mysql
+    container_name: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: 'yes'
+    ports:
+      - "3306"
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: myadmin
+    environment:
+     - PMA_ARBITRARY=1
+     - VIRTUAL_HOST=phpmyadmindocker.vgk.be
+    restart: always
+    ports:
+     - 80
+    volumes:
+     - /sessions
+
+
+volumes:
+  bundle: {}
